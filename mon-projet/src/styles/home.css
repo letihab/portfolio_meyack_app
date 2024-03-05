@@ -1,0 +1,76 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global styles */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Simplified and improved list styling */
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav ul li {
+    /* Removed unnecessary margin and combined with previous rule */
+    padding: 0 10px; /* Added padding for spacing between links */
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #3b2927; /* Marron foncé */
+  }
+  
+  /* Main styles */
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  section {
+    /* Reduced margin-bottom for better content flow */
+    margin-bottom: 20px;
+  }
+  
+  section h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* Placeholder styles for carousel, testimonials, and articles */
+  /*.carousel,
+  .testimonials,
+  .articles {
+    /* You can add specific styles for these elements based on your needs */
+ /* }*/
+  
+  /* Improved footer styling */
+  footer {
+    margin-top: 20px; /* Reduced margin-top for visual balance */
+    text-align: center; /* Added text alignment for centered content */
+  }
+  
+  /* Media query for mobile responsiveness */
+  @media only screen and (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav ul li {
+      margin-bottom: 10px;
+    }
+  }
+  
