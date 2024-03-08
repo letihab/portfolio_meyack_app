@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import CreateAccountPage from './pages/CreateAccountPage';
 import RecipePage from './pages/RecipePage';
 import MealPlan from './pages/MealPlan';
 import PhysicalActivity from './pages/PhysicalActivity';
@@ -38,9 +36,7 @@ function App() {
           <Route path="/" element={<HomePage users={users} recipes={recipes} />} />
           <Route path="/recipes" element={<RecipePage />} />
           <Route path="/meal-plan" element={<MealPlan/>} />
-          <Route path="/login" element={<LoginPage />} />
           <Route path="/physical-activities" element={<PhysicalActivity />} />
-          <Route path="/create-account" element={<CreateAccountPage />} />
           <Route path="/profile" element={<UserProfilePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

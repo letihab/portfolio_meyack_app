@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/loginForm.css'; // Importez le fichier CSS pour le formulaire de connexion
 
 function LoginForm({ onSubmit }) {
   const [username, setUsername] = useState('');
@@ -12,7 +13,7 @@ function LoginForm({ onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}> {/* Ajoutez la classe CSS au formulaire */}
       <div>
         <label htmlFor="username">Username:</label>
         <input

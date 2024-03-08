@@ -1,76 +1,147 @@
 /* Reset styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Global styles */
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Simplified and improved list styling */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul li {
+  /* Removed unnecessary margin and combined with previous rule */
+  padding: 0 10px; /* Added padding for spacing between links */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #3b2927; /* Marron foncé */
+}
+
+/* Main styles */
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  /* Reduced margin-bottom for better content flow */
+  margin-bottom: 20px;
+}
+
+section h2 {
+  margin-bottom: 20px;
+}
+
+/* Placeholder styles for carousel */
+.carousel {
+  display: flex;
+  justify-content: center; /* Centre les éléments horizontalement */
+  overflow: hidden; /* Permet de faire défiler les images horizontalement */
+  align-items: center; /* Centre les éléments verticalement */
+}
+
+.carousel img {
+  width: 50vw; /* Pour s'assurer que les images s'adaptent correctement à la taille du conteneur */
+  height: 400px;
+  margin-right: 10px; /* Espacement entre les images */
+  border-radius: 10px;
+}
+
+/* Placeholder styles for carousel, testimonials, and articles */
+/* You can add specific styles for these elements based on your needs */
+
+/* Improved footer styling */
+footer {
+  margin-top: 20px; /* Reduced margin-top for visual balance */
+  text-align: center; /* Added text alignment for centered content */
+}
+
+/* Media query for mobile responsiveness */
+@media only screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
   }
 
-  /* Simplified and improved list styling */
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-  }
-  
   nav ul li {
-    /* Removed unnecessary margin and combined with previous rule */
-    padding: 0 10px; /* Added padding for spacing between links */
+    margin-bottom: 10px;
   }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #3b2927; /* Marron foncé */
-  }
-  
-  /* Main styles */
-  main {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  section {
-    /* Reduced margin-bottom for better content flow */
-    margin-bottom: 20px;
-  }
-  
-  section h2 {
-    margin-bottom: 20px;
-  }
-  
-  /* Placeholder styles for carousel, testimonials, and articles */
-  /*.carousel,
-  .testimonials,
-  .articles {
-    /* You can add specific styles for these elements based on your needs */
- /* }*/
-  
-  /* Improved footer styling */
-  footer {
-    margin-top: 20px; /* Reduced margin-top for visual balance */
-    text-align: center; /* Added text alignment for centered content */
-  }
-  
-  /* Media query for mobile responsiveness */
-  @media only screen and (max-width: 768px) {
-    nav ul {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    nav ul li {
-      margin-bottom: 10px;
-    }
-  }
-  
+}
+
+/* Styles for the "Conseils rééquilibrage alimentaire" section */
+.articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.article-mignon {
+  position: relative; /* Ajoutez une position relative pour permettre le positionnement absolu des boutons */
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center the content within the card */
+}
+
+.article-mignon img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.article-mignon h3 {
+  color: #3b2927;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-weight: lighter;
+}
+
+.article-mignon p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 100px;
+}
+
+.lire-plus-mignon {
+  width: 200px;
+  position: absolute; /* Position absolue pour fixer les boutons */
+  bottom: 20px; /* Distance depuis le bas de la carte */
+  left: 50%; /* Centrage horizontal */
+  transform: translateX(-50%); /* Centrage horizontal */
+  background-color: #bfeac4fb;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.lire-plus-mignon:hover {
+  background-color: #f55b08;
+}
+
+.newsletter-section {
+  margin-bottom: '500px'; /* Ajustez la marge inférieure selon vos besoins */
+}
