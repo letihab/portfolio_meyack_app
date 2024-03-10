@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Footer from '../components/Footer';
-import LoginForm from '../pages/LoginForm';
-import CreateAccountForm from '../pages/CreateAccountForm'; // Ajoutez l'import du composant CreateAccountForm
 import '../styles/home.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -19,7 +17,6 @@ const HomePage = () => {
   ]);
 
   const carouselRef = useRef(null);
-  const [isLoginFormVisible, setIsLoginFormVisible] = useState(true); // Ajoutez un état pour gérer la visibilité du formulaire de connexion
 
   useEffect(() => {
     const settings = {
@@ -42,11 +39,6 @@ const HomePage = () => {
       // Ajoutez ici le code que vous souhaitez exécuter lorsque le bouton est cliqué
       console.log("Bouton 'Lire plus' cliqué !");
     }
-    
-  // Fonction pour basculer entre le formulaire de connexion et le formulaire de création de compte
-  const toggleFormVisibility = () => {
-    setIsLoginFormVisible(!isLoginFormVisible);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,17 +74,6 @@ const HomePage = () => {
           </div>
           {/* Ajoutez des descriptions ou des liens vers les recettes ci-dessous le carrousel */}
         </section>
-
-        {/* Affichez le formulaire de connexion ou de création de compte en fonction de l'état */}
-        {isLoginFormVisible ? (
-          <LoginForm onSubmit={handleSubmit} />
-        ) : (
-          <CreateAccountForm onSubmit={handleSubmit} />
-        )}
-
-        <button onClick={toggleFormVisibility}>
-          {isLoginFormVisible ? 'Créer un compte' : 'Se connecter'}
-        </button>
 
         <section id="latest-users">
           <h2>Derniers utilisateurs</h2>

@@ -13,7 +13,7 @@ function LoginForm({ onSubmit }) {
   };
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}> {/* Ajoutez la classe CSS au formulaire */}
+    <form className="authentication-form" onSubmit={handleSubmit}> {/* Changez la classe CSS */}
       <div>
         <label htmlFor="username">Username:</label>
         <input

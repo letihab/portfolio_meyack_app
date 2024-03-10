@@ -17,6 +17,11 @@ function RecipeDetails({ recipe }) {
     }));
   };
 
+  // Vérifie si recipe est défini avant d'accéder à ses propriétés
+  if (!recipe) {
+    return null; // Si recipe est null, retourne null pour éviter l'erreur
+  }
+
   return (
     <div>
       {/* Affichage des détails de la recette */}

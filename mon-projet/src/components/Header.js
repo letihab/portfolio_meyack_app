@@ -12,7 +12,7 @@ function Header() {
           <li><a href="/meal-plan">Meal Plan</a></li>
           <li><a href="/physical-activities">Physical Activities</a></li>
           <li><a href="/profile">Profile</a></li>
-          <li><a href="/create-account">log in</a></li>
+          <li><a href="/authentication">log in</a></li>
         </ul>
       </nav>
     </header>

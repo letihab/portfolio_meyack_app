@@ -6,6 +6,7 @@ import MealPlan from './pages/MealPlan';
 import PhysicalActivity from './pages/PhysicalActivity';
 import UserProfilePage from './pages/UserProfilePage';
 import NotFoundPage from './pages/NotFoundPage';
+import AuthenticationPage from './pages/AuthenticationPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './styles/styles.css';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/meal-plan" element={<MealPlan/>} />
           <Route path="/physical-activities" element={<PhysicalActivity />} />
           <Route path="/profile" element={<UserProfilePage />} />
+          <Route path="/authentication" element={<AuthenticationPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />

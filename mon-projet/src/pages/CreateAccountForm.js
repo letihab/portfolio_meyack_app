@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../registrationForm.css'; // Importez le fichier CSS pour le formulaire d'inscription
+import '../styles/loginForm.css';
 
 function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -66,9 +66,9 @@ function RegistrationForm() {
   };
 
   return (
-    <div className="registration-form-container"> {/* Ajoutez la classe CSS au conteneur du formulaire */}
+    <div className="authentication-form-container">
       <h2>Registration Form</h2>
-      <form className="registration-form" onSubmit={handleSubmit}> {/* Ajoutez la classe CSS au formulaire */}
+      <form className="authentication-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
           <input
@@ -76,6 +76,18 @@ function RegistrationForm() {
             id="username"
             name="username"
             value={formData.username}
+            onChange={handleChange}
+            required
+          />
+          {errors.username && <p className="error-message">{errors.username}</p>}
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
             onChange={handleChange}
             required
           />
