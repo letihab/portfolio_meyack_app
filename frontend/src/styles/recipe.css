@@ -1,0 +1,41 @@
+.recipes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.recipe {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.recipe-title {
+  font-size: 1.2rem;
+  font-family: "Roboto Slab", serif;
+  margin-bottom: 10px;
+}
+
+.recipe-image {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.recipe-total-time,
+.recipe-servings,
+.recipe-calories {
+  margin-bottom: 5px;
+}
+
+.recipe-link a {
+  color: blue;
+}
+
+.loading-message,
+.no-recipes-message {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
