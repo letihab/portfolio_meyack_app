@@ -1,4 +1,3 @@
-// mealPlan.js (Modèle de plan de repas)
 const mongoose = require('mongoose');
 
 const mealPlanSchema = new mongoose.Schema({
@@ -15,6 +14,14 @@ const mealPlanSchema = new mongoose.Schema({
   recipeId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Recipe',
+    required: true
+  },
+  mealTime: {
+    type: String, // Adjust type based on your needs (e.g., String, Date)
+    required: true
+  },
+  quantity: {
+    type: Number, // Adjust type based on your needs
     required: true
   }
 });

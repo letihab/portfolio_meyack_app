@@ -11,6 +11,7 @@ const Image = require('./models/image');
 const MealPlan = require('./models/mealPlan');
 const Category = require('./models/category');
 
+const mealPlanRoutes = require('./routes/mealPlanRoutes');
 const recipeRoutes = require('./routes/recipeRoutes');
 const userProfileRouter = require('./routes/userProfileRouter');
 
@@ -19,6 +20,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use('/api', mealPlanRoutes);
 app.use('/api', recipeRoutes);
 app.use('/api', userProfileRouter);
 
