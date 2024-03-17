@@ -65,7 +65,7 @@ function RecipeList() {
               <div key={recipe._id} className="recipe">
                 <h2>{recipe.label}</h2>
                 {/* Utilisez directement le nom de fichier de l'image pour l'URL */}
-                <img src={`/images/${recipe.imageUrl}`} alt={recipe.label} />
+                <img src={`${process.env.PUBLIC_URL}/images/${recipe.imageUrl}`} alt={recipe.label} />
                 <p>Temps total : {recipe.totalTime} minutes</p>
                 <p>Nombre de portions : {recipe.servings}</p>
                 <p>Calories : {recipe.calories}</p>
