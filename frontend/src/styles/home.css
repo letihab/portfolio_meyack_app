@@ -64,6 +64,18 @@ section h2 {
   border-radius: 10px;
 }
 
+.description-card {
+  position: absolute;
+  top: 140px;
+  right: 0;
+  bottom: 220px;
+  width: 300px;
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Placeholder styles for carousel, testimonials, and articles */
 /* You can add specific styles for these elements based on your needs */
 

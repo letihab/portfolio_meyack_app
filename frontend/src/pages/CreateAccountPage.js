@@ -1,14 +1,21 @@
-import React from 'react';
-import '../registrationForm.css';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import CreateAccountForm from './CreateAccountForm';
 
-function CreateAccountPage() {
+function ParentComponent() {
+  const history = useHistory();
+
+  const handleRedirectToLogin = () => {
+    history.push('/login');
+  };
+
   return (
-    <div className="create-account-page">
-      <CreateAccountForm />
+    <div>
+      <CreateAccountForm onAccountCreated={handleRedirectToLogin} />
     </div>
   );
 }
 
-export default CreateAccountPage;
+export default ParentComponent;
+
 

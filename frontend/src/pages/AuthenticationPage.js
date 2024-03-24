@@ -1,30 +1,19 @@
 import React, { useState } from 'react';
-import '../styles/loginForm.css';
-import LoginForm from './LoginForm';
+import { useHistory } from 'react-router-dom';
 import CreateAccountForm from './CreateAccountForm';
 
-function AuthenticationPage() {
-  const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
+function ParentComponent() {
+  const history = useHistory();
 
-  const toggleFormVisibility = () => {
-    setIsLoginFormVisible(!isLoginFormVisible);
+  const handleRedirectToLogin = () => {
+    history.push('/login');
   };
 
   return (
     <div>
-      {isLoginFormVisible ? (
-        <>
-          <CreateAccountForm />
-          <p>Vous avez déjà un compte ? <button onClick={toggleFormVisibility}>Connectez-vous</button></p>
-        </>
-      ) : (
-        <>
-          <LoginForm />
-          <p>Vous n'avez pas encore de compte ? <button onClick={toggleFormVisibility}>Créer un compte</button></p>
-        </>
-      )}
+      <CreateAccountForm onAccountCreated={handleRedirectToLogin} />
     </div>
   );
 }
 
-export default AuthenticationPage;
+export default ParentComponent;

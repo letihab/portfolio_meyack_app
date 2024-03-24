@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import $ from 'jquery'; // Import jQuery
 import 'slick-carousel'; // Import Slick
+import DescriptionCard from './DescriptionCard';
 
 const HomePage = () => {
   const [images] = useState([
@@ -73,6 +74,7 @@ const HomePage = () => {
             ))}
           </div>
           {/* Ajoutez des descriptions ou des liens vers les recettes ci-dessous le carrousel */}
+          <DescriptionCard />
         </section>
 
         <section id="latest-users">

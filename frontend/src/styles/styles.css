@@ -9,6 +9,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+
 }
 
 .container {
@@ -49,9 +50,26 @@ body {
 }
 
 .logo {
-    font-size: 24px;
-}
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 150px;
+    max-height: 100px;
+  }
 
+  .logout-button {
+    background-color: transparent; /* Couleur de fond du bouton */
+    color: #240303; /* Couleur du texte */
+    padding: 10px 20px; /* Espacement intérieur du bouton */
+    border: none; /* Supprimer la bordure */
+    border-radius: 5px; /* Ajouter des coins arrondis */
+    cursor: pointer; /* Afficher un curseur pointer au survol */
+  }
+  
+  .logout-button:hover {
+    background-color: #ff7f50; /* Changement de couleur au survol */
+  }
+  
 /* Hero section styles */
 .hero {
     background-color: #eff3f6; /* Bleu clair */
@@ -153,110 +171,6 @@ body {
     color: #3b2927; /* Marron foncé */
 }
 
-/* Login page styles */
-.login-page {
-    text-align: center;
-    padding: 50px 0; /* Ajoutez de l'espace autour du contenu */
-}
-
-.login-page h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #3b2927; /* Marron foncé */
-}
-
-.login-page form {
-    margin-top: 20px;
-}
-
-.login-page form div {
-    margin-bottom: 15px;
-}
-
-.login-page form label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 18px;
-    color: #3b2927; /* Marron foncé */
-}
-
-.login-page form input[type="text"],
-.login-page form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.login-page form button {
-    background-color: #3b2927; /* Marron foncé */
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-page form button:hover {
-    background-color: #57443a; /* Marron plus foncé */
-}
-
-/* Create account page styles */
-.create-account-page {
-    text-align: center;
-    padding: 50px 0; /* Ajoutez de l'espace autour du contenu */
-}
-
-.create-account-page h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #3b2927; /* Marron foncé */
-}
-
-.create-account-page form {
-    margin-top: 20px;
-}
-
-.create-account-page form div {
-    margin-bottom: 15px;
-}
-
-.create-account-page form label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 18px;
-    color: #3b2927; /* Marron foncé */
-}
-
-.create-account-page form input[type="text"],
-.create-account-page form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.create-account-page form button {
-    background-color: #3b2927; /* Marron foncé */
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.create-account-page form button:hover {
-    background-color: #57443a; /* Marron plus foncé */
-}
-
 /* Media query pour les écrans de petite taille (mobile) */
 @media only screen and (max-width: 600px) {
     .navbar {
@@ -273,3 +187,10 @@ body {
         margin-left: 10px 0;
     }
 }
+
+@media only screen and (max-width: 480px) {
+    /* Adjustments for mobile screens */
+    .hero h1 {
+      font-size: 28px; /* Adjust heading size for readability */
+    }
+  }
