@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET } = require('../config/config');
 const { v4: uuidv4 } = require('uuid');
 
 // Créer un nouvel utilisateur
@@ -18,13 +20,12 @@ router.post('/user', async (req, res) => {
     // Hasher le mot de passe
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    let newId = uuidv4();
-    console.log("new USER ID === ", newId);
-    console.log("---------------------");
+    // Générer un nouvel identifiant utilisateur unique
+    const newId = uuidv4();
 
     // Créer un nouvel utilisateur avec un identifiant unique
     const newUser = new User({
-      userId: newId, // Générer un identifiant unique
+      userId: newId,
       username,
       email,
       password: hashedPassword,
@@ -36,8 +37,11 @@ router.post('/user', async (req, res) => {
     // Sauvegarder l'utilisateur dans la base de données
     await newUser.save();
 
-    // Retourner la réponse
-    res.status(201).json({ message: 'User created successfully' });
+    // Créer un token JWT pour l'utilisateur
+    const token = jwt.sign({ userId: newId }, '19022024sia25032022Pascal');
+
+    // Retourner la réponse avec le token
+    res.status(201).json({ message: 'User created successfully', token });
   } catch (error) {
     console.error('Error creating user:', error);
     res.status(500).json({ message: 'Internal Server Error' });

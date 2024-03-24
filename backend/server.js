@@ -15,6 +15,9 @@ const mealPlanRoutes = require('./routes/mealPlanRoutes');
 const recipeRoutes = require('./routes/recipeRoutes');
 const userProfileRouter = require('./routes/userProfileRouter');
 
+const authController = require('./controllers/authController');
+
+
 const app = express();
 
 // Middleware
@@ -23,6 +26,8 @@ app.use(express.json());
 app.use('/api', mealPlanRoutes);
 app.use('/api', recipeRoutes);
 app.use('/api', userProfileRouter);
+
+app.use('/api', authController);
 
 // Connexion à MongoDB
 mongoose.connect('mongodb://localhost:27017/meyack_app')
@@ -82,7 +87,7 @@ app.use(express.static(path.join(__dirname, 'frontend', 'public')));
 
 // Définir une route de fallback pour servir l'application React sur toutes les autres routes
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, '', 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 // Démarrage du serveur sur le port défini dans l'environnement ou sur le port 4000 par défaut

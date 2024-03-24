@@ -1,38 +1,79 @@
-// recipeMiddleware.js
 const axios = require('axios');
 const Recipe = require('../models/recipe');
 
-// Middleware pour récupérer et stocker les recettes de l'API dans la base de données
+const cache = {};
+
+const getNumberOfRecipes = async () => {
+  if (cache['totalRecipes']) {
+    console.log('Nombre total de recettes récupéré du cache');
+    return cache['totalRecipes'];
+  }
+
+  const response = await axios.get('https://api.edamam.com/search', {
+    params: {
+      q: 'healthy',
+      app_id: 'dedb01cb',
+      app_key: 'c07f41ebe2b5bfb40d8b473f4f09e5a2',
+      to: 1,
+    },
+  });
+
+  cache['totalRecipes'] = response.data.count;
+  console.log('Nombre total de recettes enregistré dans le cache');
+  return cache['totalRecipes'];
+};
+
+const fetchRecipes = async (options) => {
+  const response = await axios.get(options.url, { params: options.params });
+
+  const existingRecipes = await Recipe.find({ sourceUrl: { $in: response.data.hits.map(hit => hit.recipe.url) } });
+
+  const newRecipes = response.data.hits.filter(hit => {
+    const recipe = hit.recipe;
+    return (
+      recipe.label &&
+      recipe.totalTime &&
+      recipe.image &&
+      recipe.calories &&
+      !existingRecipes.some(existingRecipe => existingRecipe.sourceUrl === recipe.url)
+    );
+  });
+
+  return newRecipes.map(hit => ({
+    label: hit.recipe.label,
+    servings: hit.recipe.yield,
+    sourceUrl: hit.recipe.url,
+    imageUrl: hit.recipe.image,
+    calories: hit.recipe.calories,
+    totalTime: hit.recipe.totalTime,
+  }));
+};
+
 const fetchAndStoreRecipes = async (req, res, next) => {
-    try {
-        const response = await axios.get('https://api.spoonacular.com/recipes/search', {
-            params: {
-                query: 'healthy',
-                apiKey: '92f3a5dfa0954db981c5e7b9b010bd33'
-            },
-        });
+  try {
+    const totalRecipes = 10;
+    const options = {
+      url: 'https://api.edamam.com/search',
+      params: {
+        q: 'healthy',
+        app_id: 'dedb01cb',
+        app_key: 'c07f41ebe2b5bfb40d8b473f4f09e5a2',
+        to: totalRecipes,
+      },
+    };
 
-        const recipesToSave = response.data.results.map(result => {
-            return {
-                label: result.title,
-                ingredients: [], // Ajoutez la logique pour récupérer les ingrédients si nécessaire
-                instructions: result.instructions || '', // Utilisez les instructions de l'API ou une chaîne vide si les instructions sont manquantes
-                imageUrl: result.image,
-                sourceUrl: result.sourceUrl,
-                totalTime: result.readyInMinutes,
-                servings: result.servings,
-                calories: Math.floor(Math.random() * 1000),
-            };
-        });
+    // Récupérer les recettes depuis l'API Edamam
+    const newRecipes = await fetchRecipes(options);
 
-        const savedRecipes = await Recipe.create(recipesToSave);
-        console.log('Recettes enregistrées avec succès dans la base de données:', savedRecipes);
-        next();
-    } catch (error) {
-        console.error('Erreur lors de la récupération et de l\'enregistrement des recettes :', error);
-        res.status(500).json({ message: 'Erreur serveur lors de la récupération et de l\'enregistrement des recettes' });
-    }
+    // Enregistrer les nouvelles recettes
+    const savedRecipes = await Recipe.create(newRecipes);
+    console.log('Recettes enregistrées avec succès dans la base de données:', savedRecipes);
+
+    next();
+  } catch (error) {
+    console.log('Erreur lors de la récupération des recettes:', error.message);
+    res.status(500).json({ message: `Erreur lors de la récupération des recettes: ${error.message}` });
+  }
 };
 
 module.exports = { fetchAndStoreRecipes };
-
