@@ -16,7 +16,7 @@ const recipeRoutes = require('./routes/recipeRoutes');
 const userProfileRouter = require('./routes/userProfileRouter');
 
 const authController = require('./controllers/authController');
-
+const recipeController = require('./controllers/recipeController');
 
 const app = express();
 
@@ -28,6 +28,7 @@ app.use('/api', recipeRoutes);
 app.use('/api', userProfileRouter);
 
 app.use('/api', authController);
+
 
 // Connexion à MongoDB
 mongoose.connect('mongodb://localhost:27017/meyack_app')
@@ -70,24 +71,15 @@ app.get('/api/users', async (req, res) => {
   }
 });
 
-// Point de terminaison pour récupérer et stocker les recettes
-app.get('/api/fetch-and-store-recipes', async (req, res) => {
-  try {
-    // Appeler la fonction pour récupérer et stocker les recettes
-    await fetchAndStoreRecipes();
-    res.json({ message: 'Recettes récupérées et stockées avec succès' });
-  } catch (error) {
-    console.error('Erreur lors de la récupération et de l\'enregistrement des recettes :', error);
-    res.status(500).json({ message: 'Internal Server Error' });
-  }
-});
+// Point de terminaison pour créer et stocker une nouvelle recette
+app.get('/api/recipes', recipeController.addRecipe);
 
-// Configuration pour servir les fichiers statiques depuis le répertoire /public de l'application React
-app.use(express.static(path.join(__dirname, 'frontend', 'public')));
+// Configuration pour servir les fichiers statiques depuis le répertoire /build de l'application React
+app.use(express.static(path.join(__dirname, '..',  'frontend', 'public')));
 
 // Définir une route de fallback pour servir l'application React sur toutes les autres routes
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+  app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'public', 'index.html'));
 });
 
 // Démarrage du serveur sur le port défini dans l'environnement ou sur le port 4000 par défaut

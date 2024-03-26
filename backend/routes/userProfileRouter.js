@@ -96,6 +96,7 @@ router.get('/users', async (req, res) => {
   try {
     // Récupérer tous les utilisateurs de la base de données
     const users = await User.find();
+    console.log("recuperons tous les users");
     res.status(200).json(users);
   } catch (error) {
     console.error('Error fetching users:', error);

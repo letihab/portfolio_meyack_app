@@ -12,7 +12,8 @@ const recipeSchema = new mongoose.Schema({
   sourceUrl: { type: String, required: true }, // URL source de la recette sur l'API Edamam
   totalTime: { type: Number, required: true }, // Temps total de préparation de la recette (en secondes)
   servings: { type: Number, required: true }, // Nombre de portions de la recette
-  calories: { type: Number, required: true } // Nombre de calories de la recette
+  calories: { type: Number, required: true }, // Nombre de calories de la recette
+  type: { type: String, required: true }
 });
 
 module.exports = mongoose.model('Recipe', recipeSchema);

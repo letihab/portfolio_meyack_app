@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const config = require('../config/config'); // Assurez-vous que le chemin d'accès est correct
 
 const authenticateUser = (req, res, next) => {
     // Récupérer le token d'authentification depuis l'en-tête Authorization
@@ -11,8 +10,8 @@ const authenticateUser = (req, res, next) => {
     }
 
     try {
-        // Vérifier et décoder le token en utilisant la clé secrète du fichier config.js
-        const decoded = jwt.verify(token, config.JWT_SECRET);
+        // Vérifier et décoder le token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         
         // Ajouter les informations de l'utilisateur décodées à l'objet de requête (req)
         req.user = decoded.user;
@@ -25,4 +24,4 @@ const authenticateUser = (req, res, next) => {
     }
 };
 
-module.exports = { authenticateUser }; 
+module.exports = { authenticateUser };
