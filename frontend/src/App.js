@@ -2,7 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import MealPlan from './pages/MealPlan';
-import PhysicalActivity from './pages/PhysicalActivity';
+import Conseils from './pages/Conseils';
+import Hydratation from './pages/Hydratation';
+import Foodprocess from './pages/Foodprocess';
 import UserProfilePage from './pages/UserProfilePage';
 import NotFoundPage from './pages/NotFoundPage';
 import Header from './components/Header';
@@ -21,7 +23,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/recipes" element={<RecipeList/>} />
           <Route path="/meal-plan" element={<MealPlan/>} />
-          <Route path="/physical-activities" element={<PhysicalActivity />} />
+          <Route path="/article" element={<Conseils />} />
+          <Route path="/hydration" element={<Hydratation />} />
+          <Route path="/food-process" element={<Foodprocess />} />
           <Route path="/profile" element={<UserProfilePage />} />
           <Route path="/login" element={<LoginForm />} /> {/* Ajout de la route vers la page de connexion */}
           <Route path="/authentication" element={<CreateAccountForm />} /> {/* Ajout de la route vers la page de création de compte */}

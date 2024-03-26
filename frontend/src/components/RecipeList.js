@@ -15,36 +15,40 @@ function RecipeList() {
   const [loading, setLoading] = useState(false); // Ajout d'un état pour afficher une indication de chargement
 
   useEffect(() => {
-    fetchRecipes();
-  }, []);
+    const fetchRecipes = async () => {
+      try {
+        setLoading(true); // Afficher l'indication de chargement
+        const response = await axios.get('/api/recipes');
+        setRecipes(response.data);
+        setLoading(false); // Masquer l'indication de chargement une fois les recettes chargées
+      } catch (error) {
+        console.error('Erreur lors de la récupération des recettes depuis le backend :', error);
+        setLoading(false); // Masquer l'indication de chargement en cas d'erreur
+      }
+    };
 
-  useEffect(() => {
+    const filterRecipes = () => {
+      let filtered = [];
+      
+      if (Array.isArray(recipes)) {
+        filtered = recipes.filter((recipe) => {
+          return (
+            (!filters.vegan || recipe.label.toLowerCase().includes('vegan')) &&
+            (!filters.glutenFree || recipe.label.toLowerCase().includes('gluten-free')) &&
+            (!filters.salad || recipe.label.toLowerCase().includes('salad')) &&
+            (!filters.highProtein || recipe.label.toLowerCase().includes('high-protein'))
+          );
+        });
+      } else {
+        console.error('recipes is not an array:', recipes);
+      }
+
+      setFilteredRecipes(filtered);
+    };  
+
+    fetchRecipes();
     filterRecipes();
   }, [recipes, filters]);
-
-  const fetchRecipes = async () => {
-    try {
-      setLoading(true); // Afficher l'indication de chargement
-      const response = await axios.get('/api/recipes');
-      setRecipes(response.data);
-      setLoading(false); // Masquer l'indication de chargement une fois les recettes chargées
-    } catch (error) {
-      console.error('Erreur lors de la récupération des recettes depuis le backend :', error);
-      setLoading(false); // Masquer l'indication de chargement en cas d'erreur
-    }
-  };
-
-  const filterRecipes = () => {
-    const filtered = recipes.filter((recipe) => {
-      return (
-        (!filters.vegan || recipe.label.toLowerCase().includes('vegan')) &&
-        (!filters.glutenFree || recipe.label.toLowerCase().includes('gluten-free')) &&
-        (!filters.salad || recipe.label.toLowerCase().includes('salad')) &&
-        (!filters.highProtein || recipe.label.toLowerCase().includes('high-protein'))
-      );
-    });
-    setFilteredRecipes(filtered);
-  };  
 
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
@@ -80,3 +84,4 @@ function RecipeList() {
 }
 
 export default RecipeList;
+

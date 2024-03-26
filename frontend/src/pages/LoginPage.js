@@ -2,8 +2,8 @@ import React from 'react';
 import LoginForm from './LoginForm';
 
 function LoginPage() {
-  const handleLoginSubmit = (username, password) => {
-    console.log('Username:', username);
+  const handleLoginSubmit = (email, password) => {
+    console.log('email:', email);
     console.log('Password:', password);
   };
 

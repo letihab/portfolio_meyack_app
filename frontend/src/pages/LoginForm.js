@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/loginForm.css'; // Importez le fichier CSS pour le formulaire de connexion
 import useLoginForm from './signup';
 
@@ -15,6 +15,18 @@ function LoginForm({ onSubmit }) {
       // Gérer les erreurs de connexion ici
     }
   };
+
+  // Assurez-vous que la valeur du champ d'email est correctement initialisée
+  // Si la valeur de formData.email est undefined, définissez-la sur une chaîne vide
+  if (formData.email === undefined) {
+    formData.email = '';
+  }
+
+  // Assurez-vous que la valeur du champ de mot de passe est correctement initialisée
+  // Si la valeur de formData.password est undefined, définissez-la sur une chaîne vide
+  if (formData.password === undefined) {
+    formData.password = '';
+  }
 
   return (
     <form className="authentication-form" onSubmit={handleSubmit}>

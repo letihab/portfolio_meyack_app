@@ -7,7 +7,9 @@ import $ from 'jquery'; // Import jQuery
 import 'slick-carousel'; // Import Slick
 import DescriptionCard from './DescriptionCard';
 
+
 const HomePage = () => {
+
   const [images] = useState([
     { src: 'images/image1.jpg', alt: 'Titre de la recette 1' },
     { src: 'images/image2.jpg', alt: 'Titre de la recette 2' },
@@ -38,7 +40,14 @@ const HomePage = () => {
     // Fonction appelée lorsque le bouton "Lire plus" est cliqué
     function handleLirePlus() {
       // Ajoutez ici le code que vous souhaitez exécuter lorsque le bouton est cliqué
-      console.log("Bouton 'Lire plus' cliqué !");
+      window.location.href = "/article";
+    }
+    function handleLire() {
+      // Ajoutez ici le code que vous souhaitez exécuter lorsque le bouton est cliqué
+      window.location.href = "/hydration";
+    }
+    function handlePlus() {
+      window.location.href = "/food-process";
     }
 
   const handleSubmit = (e) => {
@@ -104,7 +113,7 @@ const HomePage = () => {
               <img src="images/eau.jpg" alt="Buvez de l'eau !" />
               <h3>Glouglou, c'est l'eau !</h3>
               <p>Restez hydratés pour une meilleure énergie et une peau éclatante ! N'oubliez pas de boire de l'eau tout au long de la journée. </p>
-              <button className="lire-plus-mignon" onClick={handleLirePlus}>Conseils pour boire plus d'eau</button>
+              <button className="lire-plus-mignon" onClick={handleLire}>Conseils pour boire plus d'eau</button>
             </div>
 
             {/* Carte 3 */}
@@ -112,7 +121,7 @@ const HomePage = () => {
               <img src="images/aliments-transformes.jpg" alt="Évitez les aliments transformés !" />
               <h3>Bye bye, aliments transformés !</h3>
               <p>Évitez les aliments transformés et privilégiez les aliments frais et non transformés. Ils sont plus riches en nutriments essentiels et meilleurs pour votre santé globale.</p>
-              <button className="lire-plus-mignon" onClick={handleLirePlus}>En savoir plus sur les aliments sains</button>
+              <button className="lire-plus-mignon" onClick={handlePlus}>En savoir plus sur les aliments sains</button>
             </div>
           </div>
         </section>

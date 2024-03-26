@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function CreateAccountForm() {
   const navigate = useNavigate();
@@ -70,6 +70,7 @@ function CreateAccountForm() {
   return (
     <div className="authentication-container authentication-container1">
       <h2>Create Account</h2>
+      <p>Already have an account? <Link to="/login">Login</Link></p>
       <form className="authentication-container" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
@@ -77,7 +78,7 @@ function CreateAccountForm() {
             type="text"
             id="username"
             name="username"
-            value={formData.username}
+            value={formData.username || ''}
             onChange={handleChange}
             placeholder="Enter your username"
             required
@@ -89,7 +90,7 @@ function CreateAccountForm() {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
+            value={formData.email || ''}
             onChange={handleChange}
             placeholder="Enter your email"
             required
@@ -102,7 +103,7 @@ function CreateAccountForm() {
             type="password"
             id="password"
             name="password"
-            value={formData.password}
+            value={formData.password || ''}
             onChange={handleChange}
             placeholder="Enter your password"
             required
@@ -115,7 +116,7 @@ function CreateAccountForm() {
             type="password"
             id="confirmPassword"
             name="confirmPassword"
-            value={formData.confirmPassword}
+            value={formData.confirmPassword || ''}
             onChange={handleChange}
             placeholder="Confirm your password"
             required
@@ -127,7 +128,7 @@ function CreateAccountForm() {
             type="number"
             id="age"
             name="age"
-            value={formData.age}
+            value={formData.age || ''}
             onChange={handleChange}
             placeholder="Enter your age"
             required
@@ -139,7 +140,7 @@ function CreateAccountForm() {
             type="number"
             id="height"
             name="height"
-            value={formData.height}
+            value={formData.height || ''}
             onChange={handleChange}
             placeholder="Enter your height"
             required
@@ -151,7 +152,7 @@ function CreateAccountForm() {
             type="number"
             id="weight"
             name="weight"
-            value={formData.weight}
+            value={formData.weight || ''}
             onChange={handleChange}
             placeholder="Enter your weight"
             required

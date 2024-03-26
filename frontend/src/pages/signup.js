@@ -1,37 +1,36 @@
-// signup.js
-
-import { useState } from 'react'; // Importez useState depuis React
-import useCustomNavigate from './useCustomNavigate'; // Importez votre hook personnalisé
+import { useState } from 'react';
 import axios from 'axios';
 
 const useLoginForm = () => {
-  const [formData, setFormData] = useState({ // Utilisez useState pour déclarer un état local
-    username: '',
+  const [formData, setFormData] = useState({
+    email: '',
     password: ''
   });
-  
-  const customNavigate = useCustomNavigate(); // Utilisation du hook personnalisé pour obtenir la fonction de navigation
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.email]: e.target.value });
+  };
 
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:4000/api/login', formData);
-      
-      // Stockage du token dans le stockage local du navigateur
+
       localStorage.setItem('token', response.data.token);
-      
-      // Redirection vers une page après la connexion réussie
-      customNavigate('/recipes');
+
+      window.location.href = '/recipes';
     } catch (error) {
       console.error('Error logging in:', error);
-      // Gérer les erreurs de connexion ici
+
+      if (error.response && error.response.status === 401) {
+        alert('Email ou mot de passe incorrect.');
+      } else {
+        alert('Une erreur est survenue lors de la connexion.');
+      }
+
     }
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  return { formData, handleChange, handleLogin }; // Retournez les fonctions et l'état pour les utiliser dans un composant React
+  return { formData, handleChange, handleLogin };
 };
 
 export default useLoginForm;
