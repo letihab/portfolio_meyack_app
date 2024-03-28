@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import '../styles/FilterOptions.css';
 
 function FilterOptions({ onChange }) {
   const [filters, setFilters] = useState({
     vegan: false,
     glutenFree: false,
-    salad: false,
     highProtein: false,
   });
 
@@ -13,50 +13,44 @@ function FilterOptions({ onChange }) {
   };
 
   const applyFilters = () => {
-    // Appeler la fonction de rappel onChange avec les filtres sélectionnés
     onChange(filters);
   };
 
   return (
-    <div>
-      <h2>Filtrer les recettes par :</h2>
-      <label>
-        <input
-          type="checkbox"
-          checked={filters.vegan}
-          onChange={() => handleFilterChange('vegan')}
-        />
-        Vegan
-      </label>
-      <br />
-      <label>
-        <input
-          type="checkbox"
-          checked={filters.glutenFree}
-          onChange={() => handleFilterChange('glutenFree')}
-        />
-        Sans gluten
-      </label>
-      <br />
-      <label>
-        <input
-          type="checkbox"
-          checked={filters.salad}
-          onChange={() => handleFilterChange('salad')}
-        />
-        salad
-      </label>
-      <br />
-      <label>
-        <input
-          type="checkbox"
-          checked={filters.highProtein}
-          onChange={() => handleFilterChange('highProtein')}
-        />
-        Riche en protéine
-      </label>
-      <br />
-      <button onClick={applyFilters}>Appliquer les filtres</button>
+    <div className="filter-options-container">
+      <h2>Filtre:</h2>
+      <div className="filter-options"> {/* New container for horizontal alignment */}
+        <label className="checkbox-label">
+          <input
+            type="checkbox"
+            className="checkbox-input"
+            checked={filters.vegan}
+            onChange={() => handleFilterChange('vegan')}
+          />
+          Vegan
+        </label>
+        <label className="checkbox-label">
+          <input
+            type="checkbox"
+            className="checkbox-input"
+            checked={filters.glutenFree}
+            onChange={() => handleFilterChange('glutenFree')}
+          />
+          Sans gluten
+        </label>
+        <label className="checkbox-label">
+          <input
+            type="checkbox"
+            className="checkbox-input"
+            checked={filters.highProtein}
+            onChange={() => handleFilterChange('highProtein')}
+          />
+          Riche en protéine
+        </label>
+      </div>
+      <button className="apply-button" onClick={applyFilters}>
+        Appliquer les filtres
+      </button>
     </div>
   );
 }

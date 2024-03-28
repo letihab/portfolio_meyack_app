@@ -9,7 +9,7 @@ import UserProfilePage from './pages/UserProfilePage';
 import NotFoundPage from './pages/NotFoundPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import RecipeList from './components/RecipeList';
+import RecipeList from './components/recipes/RecipeList';
 import LoginForm from './pages/LoginForm'; // Ajout de l'import du composant LoginForm
 import CreateAccountForm from './pages/CreateAccountForm'; // Ajout de l'import du composant CreateAccountForm
 import './styles/styles.css';

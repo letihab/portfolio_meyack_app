@@ -1,0 +1,40 @@
+/* recipeDetails.css */
+
+.ingredients {
+    margin-bottom: 20px;
+  }
+  
+  .ingredients h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .ingredients ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .ingredients li {
+    margin-bottom: 5px;
+  }
+  
+  .instructions {
+    margin-bottom: 20px;
+  }
+  
+  .instructions h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .instructions ol {
+    padding-left: 20px;
+  }
+  
+  .instructions li {
+    margin-bottom: 5px;
+  }
+  
+  

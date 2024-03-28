@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import { encode } from 'base-64';
 
 function CreateAccountForm() {
   const navigate = useNavigate();
@@ -56,9 +57,14 @@ function CreateAccountForm() {
       return;
     }
 
+    const encodedPassword = encode(formData.password);
+
     try {
       // Send a POST request to your backend to save the user data
-      const response = await axios.post('http://localhost:4000/api/user', formData);
+      const response = await axios.post('http://localhost:4000/api/user', {
+        ...formData,
+        password: encodedPassword
+      });
 
       // Redirect to login page after successful account creation
       navigate('/login');

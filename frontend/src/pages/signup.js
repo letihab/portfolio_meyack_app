@@ -8,7 +8,7 @@ const useLoginForm = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.email]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleLogin = async () => {

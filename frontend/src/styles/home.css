@@ -26,12 +26,14 @@ nav ul {
 
 nav ul li {
   /* Removed unnecessary margin and combined with previous rule */
-  padding: 0 10px; /* Added padding for spacing between links */
+  padding: 0 10px;
+  /* Added padding for spacing between links */
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #3b2927; /* Marron foncé */
+  color: #3b2927;
+  /* Marron foncé */
 }
 
 /* Main styles */
@@ -50,39 +52,74 @@ section h2 {
 }
 
 /* Placeholder styles for carousel */
+.carousel-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
 .carousel {
   display: flex;
-  justify-content: center; /* Centre les éléments horizontalement */
-  overflow: hidden; /* Permet de faire défiler les images horizontalement */
-  align-items: center; /* Centre les éléments verticalement */
+  overflow: hidden;
+  /* Permet de faire défiler les images horizontalement */
+  z-index: 1;
+  align-items: center;
+  max-width: 100%;
 }
 
 .carousel img {
-  width: 50vw; /* Pour s'assurer que les images s'adaptent correctement à la taille du conteneur */
+  width: 50vw;
+  /* Pour s'assurer que les images s'adaptent correctement à la taille du conteneur */
+  max-width: 700px;
   height: 400px;
-  margin-right: 10px; /* Espacement entre les images */
+  margin-right: 10px;
+  /* Espacement entre les images */
   border-radius: 10px;
 }
 
-.description-card {
-  position: absolute;
-  top: 140px;
-  right: 0;
-  bottom: 220px;
-  width: 300px;
-  background-color: transparent;
-  padding: 20px;
-  border-radius: 10px; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.spacer {
+  width: 20px;
+  /* Ajustez la largeur selon vos besoins */
 }
 
-/* Placeholder styles for carousel, testimonials, and articles */
-/* You can add specific styles for these elements based on your needs */
+.description-card {
+  position: absolute; /* Modifiez la position en absolute */
+  top: 3%;
+  bottom: 220px;
+  left: 30px;
+  transform: translateY(0); /* Ajustez la transformation */
+  width: 400px;
+  height: 400px;
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
 
-/* Improved footer styling */
-footer {
-  margin-top: 20px; /* Reduced margin-top for visual balance */
-  text-align: center; /* Added text alignment for centered content */
+.description-card p {
+  font-size: 1rem;
+  /* Utilisez une police plus petite */
+}
+
+.description-card img {
+  width: 80%;
+  /* Redimensionnez les images */
+}
+
+@media only screen and (max-width: 768px) {
+  .carousel {
+    margin: 0 auto;
+  }
+
+  .description-card {
+    right: auto;
+    left: calc(50% - 150px);
+    top: 50%;
+    transform: none;
+    width: calc(100% - 40px);
+  }
 }
 
 /* Media query for mobile responsiveness */
@@ -105,12 +142,14 @@ footer {
 }
 
 .article-mignon {
-  position: relative; /* Ajoutez une position relative pour permettre le positionnement absolu des boutons */
+  position: relative;
+  /* Ajoutez une position relative pour permettre le positionnement absolu des boutons */
   background-color: #f9f9f9;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center; /* Center the content within the card */
+  text-align: center;
+  /* Center the content within the card */
 }
 
 .article-mignon img {
@@ -136,10 +175,14 @@ footer {
 
 .lire-plus-mignon {
   width: 200px;
-  position: absolute; /* Position absolue pour fixer les boutons */
-  bottom: 20px; /* Distance depuis le bas de la carte */
-  left: 50%; /* Centrage horizontal */
-  transform: translateX(-50%); /* Centrage horizontal */
+  position: absolute;
+  /* Position absolue pour fixer les boutons */
+  bottom: 20px;
+  /* Distance depuis le bas de la carte */
+  left: 50%;
+  /* Centrage horizontal */
+  transform: translateX(-50%);
+  /* Centrage horizontal */
   background-color: #bfeac4fb;
   color: #fff;
   padding: 10px 20px;
@@ -155,5 +198,6 @@ footer {
 }
 
 .newsletter-section {
-  margin-bottom: 100px; /* Ajustez la marge inférieure selon vos besoins */
+  margin-bottom: 100px;
+  /* Ajustez la marge inférieure selon vos besoins */
 }

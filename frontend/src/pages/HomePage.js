@@ -37,18 +37,18 @@ const HomePage = () => {
     });
   }, []); // Run only once after initial render
 
-    // Fonction appelée lorsque le bouton "Lire plus" est cliqué
-    function handleLirePlus() {
-      // Ajoutez ici le code que vous souhaitez exécuter lorsque le bouton est cliqué
-      window.location.href = "/article";
-    }
-    function handleLire() {
-      // Ajoutez ici le code que vous souhaitez exécuter lorsque le bouton est cliqué
-      window.location.href = "/hydration";
-    }
-    function handlePlus() {
-      window.location.href = "/food-process";
-    }
+  // Fonction appelée lorsque le bouton "Lire plus" est cliqué
+  function handleLirePlus() {
+    // Ajoutez ici le code que vous souhaitez exécuter lorsque le bouton est cliqué
+    window.location.href = "/article";
+  }
+  function handleLire() {
+    // Ajoutez ici le code que vous souhaitez exécuter lorsque le bouton est cliqué
+    window.location.href = "/hydration";
+  }
+  function handlePlus() {
+    window.location.href = "/food-process";
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,15 +75,18 @@ const HomePage = () => {
       <main>
         <section id="featured-recipes">
           <h2>Plats en vedette</h2>
-          <div ref={carouselRef} className="carousel">
-            {images.map((image) => (
-              <div key={image.src}>
-                <img src={image.src} alt={image.alt} />
-              </div>
-            ))}
+          <div className="carousel-container">
+            <div ref={carouselRef} className="carousel">
+              {images.map((image) => (
+                <div key={image.src}>
+                  <img src={image.src} alt={image.alt} />
+                </div>
+              ))}
+            </div>
+            <div className="spacer"></div>
+            <DescriptionCard />
           </div>
           {/* Ajoutez des descriptions ou des liens vers les recettes ci-dessous le carrousel */}
-          <DescriptionCard />
         </section>
 
         <section id="latest-users">

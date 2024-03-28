@@ -147,28 +147,12 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
+    margin-top: 20px; /* Reduced margin-top for visual balance */
+  text-align: center;
 }
 
 .footer p {
     font-size: 14px;
-}
-
-/* Home page styles */
-.home-page {
-    text-align: center;
-    padding: 50px 0; /* Ajoutez de l'espace autour du contenu */
-}
-
-.home-page h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #3b2927; /* Marron foncé */
-}
-
-.home-page p {
-    font-size: 18px;
-    margin-bottom: 40px;
-    color: #3b2927; /* Marron foncé */
 }
 
 /* Media query pour les écrans de petite taille (mobile) */
@@ -192,5 +176,16 @@ body {
     /* Adjustments for mobile screens */
     .hero h1 {
       font-size: 28px; /* Adjust heading size for readability */
+    }
+  }
+/* Media query for mobile responsiveness */
+@media only screen and (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav ul li {
+      margin-bottom: 10px;
     }
   }

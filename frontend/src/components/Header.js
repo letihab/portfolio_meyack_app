@@ -22,11 +22,9 @@ function Header() {
           <li><a href="/">Home</a></li>
           <li><a href="/recipes">Recipes</a></li>
           <li><a href="/meal-plan">Meal Plan</a></li>
-          <li><a href="/physical-activities">Physical Activities</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/authentication">log in</a></li>
+          <li><a href="/authentication">Connexion</a></li>
           {/* Ajouter un bouton de déconnexion */}
-          <li><button  className="logout-button" onClick={handleLogout}>Logout</button></li>
+          <li><button  className="logout-button" onClick={handleLogout}>Deconnexion</button></li>
         </ul>
       </nav>
     </header>

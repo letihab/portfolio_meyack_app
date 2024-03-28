@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../userprofile.css';
 
 function EditableProfileForm() {
   // Define state variables for user profile information, BMI calculation, and errors

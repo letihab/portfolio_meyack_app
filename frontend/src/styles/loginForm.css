@@ -1,87 +1,15 @@
-/* Styles for Authentication Page */
-.authentication-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8dfd3; /* Rose pâle */
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .authentication-container h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: #3b2927; /* Marron foncé */
-  }
-  
-  .authentication-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Add spacing between form elements */
-  }
-  
-  .authentication-container label {
-    margin-bottom: 5px;
-    color: #3b2927; /* Marron foncé */
-  }
-  
-  .authentication-container input[type="text"],
-  .authentication-container input[type="password"],
-  .authentication-container input[type="email"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    /* Add placeholder styles and focus styles as needed */
-  }
-  
-  .authentication-container button {
-    padding: 10px 20px; /* Adjust padding if needed */
-    background-color: #3b2927; /* Marron foncé */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .authentication-container button:hover {
-    background-color: #57443a; /* Marron plus foncé */
-  }
-  
-  /* Style for the message */
-  .authentication-message {
-    margin-top: 20px;
-    text-align: center;
-    color: #3b2927; /* Marron foncé */
-  }
-  
-  .authentication-message button {
-    background: none;
-    border: none;
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  /* Media query for smaller screens */
-  @media only screen and (max-width: 600px) {
-    .authentication-container {
-      width: 90%; /* Adjust width for smaller screens */
-    }
-  }
-
-/* Styles par défaut */
+/* Styles pour le formulaire de connexion */
 .authentication-form {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #f9f9f9; /* Couleur de fond */
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .authentication-form div {
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Ajouter de l'espace entre les éléments du formulaire */
 }
 
 .authentication-form label {
@@ -100,33 +28,84 @@
 .authentication-form button {
   width: 100%;
   padding: 10px;
-  background-color: #fca25d;
-  color: #fff;
+  background-color: #fca25d; /* Couleur de fond du bouton */
+  color: #fff; /* Couleur du texte du bouton */
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .authentication-form button:hover {
-  background-color: #412b03;
+  background-color: #412b03; /* Couleur de fond du bouton au survol */
 }
 
-/* Media Queries pour les écrans de taille moyenne */
-@media only screen and (max-width: 768px) {
-  .authentication-form {
-    max-width: 80%;
+/* Styles pour le formulaire d'authentification */
+.authentication-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8dfd3; /* Rose pâle */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.authentication-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #3b2927; /* Marron foncé */
+}
+
+.authentication-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Ajouter de l'espace entre les éléments du formulaire */
+}
+
+.authentication-container label {
+  margin-bottom: 5px;
+  color: #3b2927; /* Marron foncé */
+}
+
+.authentication-container input[type="text"],
+.authentication-container input[type="password"],
+.authentication-container input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  /* Ajouter des styles de placeholder et de focus au besoin */
+}
+
+.authentication-container button {
+  padding: 10px 20px; /* Ajuster le rembourrage si nécessaire */
+  background-color: #3b2927; /* Marron foncé */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.authentication-container button:hover {
+  background-color: #57443a; /* Marron plus foncé */
+}
+
+/* Media query pour les écrans plus petits */
+@media only screen and (max-width: 600px) {
+  .authentication-container {
+    width: 80%; /* Ajuster la largeur pour les écrans plus petits */
   }
 }
 
-/* Media Queries pour les smartphones */
 @media only screen and (max-width: 480px) {
-  .authentication-form {
-    padding: 10px;
+  .authentication-container form {
+    display: flex; /* Activer flexbox pour le formulaire */
+    flex-direction: column;
+    gap: 10px; /* Réduire l'espace entre les éléments */
   }
-  .authentication-form button {
-    font-size: 14px;
+  .authentication-container label {
+    margin-bottom: 3px; /* Réduire la marge de l'étiquette */
+  }
+  .authentication-container button {
+    padding: 8px 15px; /* Réduire le rembourrage du bouton */
   }
 }
-
-
-  

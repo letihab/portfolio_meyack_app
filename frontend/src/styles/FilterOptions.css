@@ -1,0 +1,41 @@
+/* Styles for FilterOptions */
+
+.filter-options-container {
+  margin-bottom: 20px;
+}
+
+.filter-options-container h2 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.filter-options {
+  display: flex; /* Make the options container a flexbox */
+  flex-wrap: wrap; /* Allow options to wrap to the next line if needed */
+  margin-right: -10px; /* Remove margin from the last element */
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 15px;
+  margin-bottom: 10px; /* Add space between filter rows */
+}
+
+.checkbox-input {
+  margin-right: 8px;
+}
+
+.apply-button {
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: hwb(0 100% 0%);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.apply-button:hover {
+  background-color: #c4bebe;
+}
