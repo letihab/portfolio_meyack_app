@@ -17,6 +17,7 @@ const userProfileRouter = require('./routes/userProfileRouter');
 
 const authController = require('./controllers/authController');
 const recipeController = require('./controllers/recipeController');
+const recipe = require('./models/recipe');
 
 const app = express();
 
@@ -72,7 +73,8 @@ app.get('/api/users', async (req, res) => {
 });
 
 // Point de terminaison pour créer et stocker une nouvelle recette
-app.get('/api/recipes', recipeController.addRecipe);
+app.post('/api/recipes', recipeController.addRecipe);
+app.get('/api/recipes', recipeController.getAllRecipes);
 
 // Configuration pour servir les fichiers statiques depuis le répertoire /build de l'application React
 app.use(express.static(path.join(__dirname, '..',  'frontend', 'public')));
